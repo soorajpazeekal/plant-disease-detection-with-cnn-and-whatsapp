@@ -324,7 +324,7 @@ def threadmain_full_context(wa_id,url):
 @app.route('/api', methods=['GET', 'POST'])
 def apifromserver():
     key = request.args.get('key')
-    api_key = 'b277b68e-e227-48d4-b754-c0ae600ab40d'
+    api_key = {}
     if key == api_key:
         from_number = request.form['From']
         message = request.form['Body']
