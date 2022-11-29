@@ -17,4 +17,4 @@ python app.py
 ```
 
 ## Screenshots
-(https://github.com/soorajpazeekal/plant-disease-detection-with-cnn-and-whatsapp/blob/main/screenshot-poc.gif)
+![alt text](https://github.com/soorajpazeekal/plant-disease-detection-with-cnn-and-whatsapp/blob/main/screenshot-poc.gif)
