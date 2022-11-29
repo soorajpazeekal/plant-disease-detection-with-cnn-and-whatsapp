@@ -17,4 +17,5 @@ python app.py
 ```
 
 ## Screenshots
+
 ![google colab](https://github.com/soorajpazeekal/plant-disease-detection-with-cnn-and-whatsapp/blob/devlopment/screenshot-poc.gif)
