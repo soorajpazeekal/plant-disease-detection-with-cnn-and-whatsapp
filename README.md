@@ -12,7 +12,7 @@ Image Based Disease Detection for banana leaf with WhatsApp integration using CN
 - SIGATOKA
   ![SIGATOKA](https://raw.githubusercontent.com/soorajpazeekal/plant-disease-detection-with-cnn-and-whatsapp/main/valid/SIGATOKA/001.jpg)
 
-## Model training
+## Model training.
 If you need to train a new Model with own data, please refer notebook with this repo.
 
 ## Installation
