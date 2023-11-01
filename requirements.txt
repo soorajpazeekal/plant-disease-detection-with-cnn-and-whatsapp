@@ -5,3 +5,8 @@ requests==2.26.0
 pandas==1.3.4
 tensorflow-cpu==2.7.0
 opencv-python==4.5.4.58
+keras==2.7.0
+Keras-Preprocessing==1.1.2
+twilio==7.2.0
+Pillow==8.4.0
+protobuf==3.20.*

@@ -22,8 +22,14 @@ First clone this repo
 ```bash
 git clone https://github.com/soorajpazeekal/plant-disease-detection-with-cnn-and-whatsapp.git
 ```
+```bash
+conda create -n myenv python=3.8
+```
 ```python
 pip install -r requirements.txt
+```
+```bash
+sudo apt-get install ffmpeg libsm6 libxext6  -y
 ```
 ```python
 python app.py

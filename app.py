@@ -32,11 +32,14 @@ urllib.request.install_opener(opener)
 
 
 app = Flask(__name__, static_url_path='/src')
-model = load_model("Own Path:/best_model.h5")
+model = load_model("./trained model/best_model.h5")
 
 
 account_sid = ""
 auth_token = ""
+
+from requests.auth import HTTPBasicAuth ##new
+
 
 
 eng_greet = """ Welcome to the real-time plant disease detection system! 
@@ -269,7 +272,7 @@ def conver_flow(msg,wa_id):
     return "please send a valid message"  
 
 def imgdraw(path):
-    path_to_folder = 'C:/Users/lenovo/Pictures/Disease_dataset/app/src'
+    path_to_folder = './src'
     img1 = cv2.imread(os.path.join(path_to_folder, path+".jpg"))
     img_building = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)  # Convert from cv's BRG default color order to RGB
     orb = cv2.ORB_create()
@@ -279,7 +282,7 @@ def imgdraw(path):
                                             img_building, 
                                             flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
     final_img = cv2.resize(img_building_keypoints, (1000,650))
-    cv2.imwrite('C:/Users/lenovo/Pictures/Disease_dataset/app/cv/'+path+".jpg", final_img)
+    cv2.imwrite('./cv'+path+".jpg", final_img)
 
 
 
@@ -295,22 +298,25 @@ def prediction(path):
 #     print(f"result of your file is {pred}")
 
 
-
 def urltofile(url):
+    response = requests.get(url, auth=HTTPBasicAuth(account_sid, auth_token))
+    image_data = response.content
     filename = url.split("/")[-1].split("?")[0]
     filter_file_name = re.sub('[^A-Za-z0-9]+', '', filename)
     fullfilename = os.path.join("src", filter_file_name+".jpg")
-    f = open(fullfilename,'wb')
-    r = requests.head(url, allow_redirects=True)
-    f.write(urllib.request.urlopen(r.url).read())
-    f.close()
+    print(fullfilename)
+    with open(fullfilename, 'wb') as image_file:
+        image_file.write(image_data)
+    # f = open(fullfilename,'wb')
+    # r = requests.head(url, allow_redirects=True)
+    # f.write(urllib.request.urlopen(r.url).read())
+    # f.close()
     # urllib.request.urlretrieve(url, fullfilename)  
     # r = requests.head(url, allow_redirects=True)
     # print(r.url)
     # y = threading.Thread(target = imgdraw, args = (filter_file_name,))
     # y.start()
-    path = fullfilename
-    return prediction(path)
+    return prediction(fullfilename)
 
 
 def threadmain_full_context(wa_id,url):
@@ -320,11 +326,10 @@ def threadmain_full_context(wa_id,url):
     return result
 
 
-
 @app.route('/api', methods=['GET', 'POST'])
 def apifromserver():
     key = request.args.get('key')
-    api_key = {}
+    api_key = ""
     if key == api_key:
         from_number = request.form['From']
         message = request.form['Body']
@@ -332,7 +337,7 @@ def apifromserver():
             headers={ 'content-type':'text/plain'}
             media = request.form['MediaUrl0']
             print(media)
-            #result = urltofile(media)
+                    #result = urltofile(media)
             #from_db_data = db.testwhats.find_one({"wa_id": from_number})
             from_db_data = request.cookies.get('greet')
             if from_db_data is None:
