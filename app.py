@@ -347,7 +347,7 @@ def apifromserver():
                 if from_db_data == "eng_":
                     x = threading.Thread(target = threadmain_full_context, args = (from_number, media))
                     x.start()
-                    return "Please wait a second. we analizing your photo!", headers
+                    return "Please wait a second. we analyzing your photo!", headers
                 elif from_db_data == "mal_":
                     x = threading.Thread(target = threadmain_full_context, args = (from_number, media))
                     x.start()
