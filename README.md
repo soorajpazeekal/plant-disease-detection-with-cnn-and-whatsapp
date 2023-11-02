@@ -18,10 +18,22 @@ If you need to train a new Model with own data, please refer notebook with this 
 ## Installation
 
 First clone this repo
+second add user credentials
+account_sid = ""
+auth_token = ""
 
 ```bash
 git clone https://github.com/soorajpazeekal/plant-disease-detection-with-cnn-and-whatsapp.git
 ```
+If docker available:
+```bash
+docker build -t plant_python_demo:1.0 .
+```
+```bash
+docker run -p 5000:5000 my-python-app:1.0
+or
+docker run -d --restart always -p 5000:5000 <image-id>
+``
 ```bash
 conda create -n myenv python=3.8
 ```
