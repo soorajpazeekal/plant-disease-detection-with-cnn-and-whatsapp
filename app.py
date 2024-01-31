@@ -63,7 +63,6 @@ eng_info = """Name: BUNCHY_TOP
             The disease, often called BBTD for banana bunchy top disease, 
             gets its name from the bunchy appearance of infected plants."""
 
-
 eng_BUNCHY_TOP = """Name: BUNCHY_TOP.  Bunchy top is a viral disease caused by the Banana bunchy top virus (BBTV). 
 The disease, often called BBTD for banana bunchy top disease,gets its name from the bunchy appearance of infected plants.
 By that time, however, the  virus has most likely been spread to other plants by the banana aphid, Pentalonia nigronervosa.
@@ -223,8 +222,6 @@ def sendtext(wa_id,text):
                             to=wa_id)
     print(message.sid)
     return message.sid       
-
-
 
 class_names = {
     0 : 'BUNCHY_TOP',
