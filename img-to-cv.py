@@ -4,12 +4,9 @@ import cv2
 import matplotlib.pyplot as plt
 import os
 
-
 path = '{}/src'
 img1 = cv2.imread(os.path.join(path, 'image_filename{}.jpg'))
-
 img_building = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)  # Convert from cv's BRG default color order to RGB
-
 orb = cv2.ORB_create()  # OpenCV 3 backward incompatibility: Do not create a detector with `cv2.ORB()`.
 
 key_points, description = orb.detectAndCompute(img_building, None)
