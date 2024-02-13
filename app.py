@@ -16,8 +16,6 @@ import threading
 import time
 import cv2
 
-#lt --port 8000
-
 import keras
 from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 from keras.models import load_model
@@ -40,7 +38,7 @@ auth_token = ""
 
 from requests.auth import HTTPBasicAuth ##new
 
-
+#Static Messages
 
 eng_greet = """ Welcome to the real-time plant disease detection system! 
                 This software can easily detect different diseases from a photo.
@@ -200,6 +198,7 @@ tamil_SIGATOKA = """(SIGATOKA) சிகடோகா இலைப்புள்
 அறுவடைக்கும் பழுக்க வைப்பதற்கும் இடைப்பட்ட காலம்.
 Ref: https://www.youtube.com/watch?v=zGOEUliJNhI"""
 
+#Main executions
 
 def savejson(wa_id, lang):
     with open("data.json", encoding='utf-8', errors='ignore') as f:
@@ -322,6 +321,7 @@ def threadmain_full_context(wa_id,url):
     result = sendtext(wa_id,final_pred)
     return result
 
+#Updated with new twilio api changes
 
 @app.route('/api', methods=['GET', 'POST'])
 def apifromserver():
